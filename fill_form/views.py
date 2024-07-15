@@ -8,29 +8,28 @@ import time
 def form(request):
     
     options = Options()
-    #options.add_experimental_option("prefs", {"profile.managed_default_content_settings.images": 2,})
     driver = webdriver.Chrome(options=options)
 
     try:
-        f_url = 'https://docs.google.com/forms/d/e/1FAIpQLSfFXnxiFhCCK5a2INyDEgQp6GQEYvHocWGBdTDyY3EVhWr1Ag/viewform?vc=0&c=0&w=1&flr=0'
+        f_url = 'https://docs.google.com/forms/d/e/1FAIpQLSdUCd3UWQ3VOgeg0ZzNeT-xzNawU8AJ7Xidml-w1vhfBcvBWQ/viewform'
         driver.get(f_url)
         time.sleep(2)
 
-        driver.find_element("xpath",'//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div/div[1]/input').send_keys("Rahul") #name
+        driver.find_element("xpath",'//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div/div[1]/input').send_keys("Rahul Wadangekar") #name
 
-        driver.find_element("xpath",'/html/body/div/div[2]/form/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/input').send_keys("1234567890") #number
+        driver.find_element("xpath",'/html/body/div/div[2]/form/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/input').send_keys("9325094486") #number
 
-        driver.find_element("xpath",'/html/body/div/div[2]/form/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div[1]/div/div[1]/input').send_keys("example@gmail.com") #email
+        driver.find_element("xpath",'/html/body/div/div[2]/form/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div[1]/div/div[1]/input').send_keys("rahulwadangekar@gmail.com") #email
                             
-        driver.find_element("xpath",'/html/body/div/div[2]/form/div[2]/div/div[2]/div[4]/div/div/div[2]/div/div[1]/div[2]/textarea').send_keys("address") #address
+        driver.find_element("xpath",'/html/body/div/div[2]/form/div[2]/div/div[2]/div[4]/div/div/div[2]/div/div[1]/div[2]/textarea').send_keys("974 E ward shahupuri 7th Lane Kolhapur") #address
         
-        driver.find_element("xpath",'/html/body/div/div[2]/form/div[2]/div/div[2]/div[5]/div/div/div[2]/div/div[1]/div/div[1]/input').send_keys('pincode') #pincode
+        driver.find_element("xpath",'/html/body/div/div[2]/form/div[2]/div/div[2]/div[5]/div/div/div[2]/div/div[1]/div/div[1]/input').send_keys('416001') #pincode
 
         driver.find_element("xpath", '/html/body/div/div[2]/form/div[2]/div/div[2]/div[6]/div/div/div[2]/div/div/div[2]/div[1]/div/div[1]/input').send_keys('17102000') #bday
 
         driver.find_element("xpath", '/html/body/div/div[2]/form/div[2]/div/div[2]/div[7]/div/div/div[2]/div/div[1]/div/div[1]/input').send_keys('Male') #gender
 
-        code = driver.find_element("xpath", '/html/body/div/div[2]/form/div[2]/div/div[2]/div[8]/div/div/div[1]/div/div[1]/span[1]/div[1]/span/b').text #extract code
+        code = driver.find_element("xpath", '/html/body/div/div[2]/form/div[2]/div/div[2]/div[8]/div/div/div[1]/div/div[1]/span[1]/b').text #extract code
         driver.find_element("xpath", '/html/body/div/div[2]/form/div[2]/div/div[2]/div[8]/div/div/div[2]/div/div[1]/div/div[1]/input').send_keys(code) #enter code
 
         time.sleep(3)
@@ -45,11 +44,12 @@ def form(request):
             subject='Python (Selenium) Assignment - Rahul Wadangekar',
             body='htmlBody',
             from_email='rahulwadangekar@email.com',
-            to=['rahulsw12234@gmail.com'],
-            cc= ['rahul67052@gmail.com'],
+            to=['tech@themedius.ai'],
+            cc= [' hr@themedius.ai'],
         )
         email.content_subtype = "html"
         email.attach_file("ss.png")
+        email.attach_file("Project Documentation.pdf")
         email.send(fail_silently=False)
     
     except Exception as e:
@@ -59,22 +59,4 @@ def form(request):
         driver.quit()
     
     return HttpResponse("Form Submitted Successfully.")
-
-# def email(request):
-
-#     try:
-#         email = EmailMessage(
-#             subject='Python (Selenium) Assignment - Rahul Wadangekar',
-#             body='htmlBody',
-#             from_email='rahulwadangekar@email.com',
-#             to=['rahulsw12234@gmail.com'],
-#             cc= ['rahul67052@gmail.com'],
-#         )
-#         email.content_subtype = "html"
-#         #email.attach_file("ss.png")
-#         email.send(fail_silently=False)
-    
-#     except Exception as e:
-#         return HttpResponse(f"Email Error: {e}")
-
-#     return HttpResponse("\nEmail Sent Successfully.")
+ 
