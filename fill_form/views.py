@@ -42,7 +42,7 @@ def form(request):
 
         email = EmailMessage(
             subject='Python (Selenium) Assignment - Rahul Wadangekar',
-            body='htmlBody',
+            body='GitHub link: https://github.com/rahulsw00/python-selenium-assignment',
             from_email='rahulwadangekar@email.com',
             to=['tech@themedius.ai'],
             cc= [' hr@themedius.ai'],
