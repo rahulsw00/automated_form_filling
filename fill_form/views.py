@@ -11,23 +11,23 @@ def form(request):
     driver = webdriver.Chrome(options=options)
 
     try:
-        f_url = 'https://docs.google.com/forms/d/e/1FAIpQLSdUCd3UWQ3VOgeg0ZzNeT-xzNawU8AJ7Xidml-w1vhfBcvBWQ/viewform'
+        f_url = 'google_form_link'
         driver.get(f_url)
         time.sleep(2)
 
-        driver.find_element("xpath",'//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div/div[1]/input').send_keys("Rahul Wadangekar") #name
+        driver.find_element("xpath",'//*[@id="mG61Hd"]/div[2]/div/div[2]/div[1]/div/div/div[2]/div/div[1]/div/div[1]/input').send_keys("name") #name
 
-        driver.find_element("xpath",'/html/body/div/div[2]/form/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/input').send_keys("9325094486") #number
+        driver.find_element("xpath",'/html/body/div/div[2]/form/div[2]/div/div[2]/div[2]/div/div/div[2]/div/div[1]/div/div[1]/input').send_keys("number") #number
 
-        driver.find_element("xpath",'/html/body/div/div[2]/form/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div[1]/div/div[1]/input').send_keys("rahulwadangekar@gmail.com") #email
+        driver.find_element("xpath",'/html/body/div/div[2]/form/div[2]/div/div[2]/div[3]/div/div/div[2]/div/div[1]/div/div[1]/input').send_keys("@gmail.com") #email
                             
-        driver.find_element("xpath",'/html/body/div/div[2]/form/div[2]/div/div[2]/div[4]/div/div/div[2]/div/div[1]/div[2]/textarea').send_keys("974 E ward shahupuri 7th Lane Kolhapur") #address
+        driver.find_element("xpath",'/html/body/div/div[2]/form/div[2]/div/div[2]/div[4]/div/div/div[2]/div/div[1]/div[2]/textarea').send_keys("addr") #address
         
-        driver.find_element("xpath",'/html/body/div/div[2]/form/div[2]/div/div[2]/div[5]/div/div/div[2]/div/div[1]/div/div[1]/input').send_keys('416001') #pincode
+        driver.find_element("xpath",'/html/body/div/div[2]/form/div[2]/div/div[2]/div[5]/div/div/div[2]/div/div[1]/div/div[1]/input').send_keys('pin') #pincode
 
-        driver.find_element("xpath", '/html/body/div/div[2]/form/div[2]/div/div[2]/div[6]/div/div/div[2]/div/div/div[2]/div[1]/div/div[1]/input').send_keys('17102000') #bday
+        driver.find_element("xpath", '/html/body/div/div[2]/form/div[2]/div/div[2]/div[6]/div/div/div[2]/div/div/div[2]/div[1]/div/div[1]/input').send_keys('bday') #bday
 
-        driver.find_element("xpath", '/html/body/div/div[2]/form/div[2]/div/div[2]/div[7]/div/div/div[2]/div/div[1]/div/div[1]/input').send_keys('Male') #gender
+        driver.find_element("xpath", '/html/body/div/div[2]/form/div[2]/div/div[2]/div[7]/div/div/div[2]/div/div[1]/div/div[1]/input').send_keys('gender') #gender
 
         code = driver.find_element("xpath", '/html/body/div/div[2]/form/div[2]/div/div[2]/div[8]/div/div/div[1]/div/div[1]/span[1]/b').text #extract code
         driver.find_element("xpath", '/html/body/div/div[2]/form/div[2]/div/div[2]/div[8]/div/div/div[2]/div/div[1]/div/div[1]/input').send_keys(code) #enter code
@@ -41,11 +41,11 @@ def form(request):
         time.sleep(5)
 
         email = EmailMessage(
-            subject='Python (Selenium) Assignment - Rahul Wadangekar',
+            subject='subject',
             body='GitHub link: https://github.com/rahulsw00/python-selenium-assignment',
-            from_email='rahulwadangekar@email.com',
-            to=['tech@themedius.ai'],
-            cc= [' hr@themedius.ai'],
+            from_email='from@gmail.com',
+            to=['to@gmail.com'],
+            cc= [' cc@gmail.com'],
         )
         email.content_subtype = "html"
         email.attach_file("ss.png")
